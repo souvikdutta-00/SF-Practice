@@ -1,0 +1,59 @@
+<!--
+  @description       : Customer Detail component for displaying customer information and rental history
+  @author            : Souvik Dutta
+  @group             : 
+  @last modified on  : 09-05-2026
+  @last modified by  : Souvik Dutta
+-->
+<template>
+    <div class="container">
+
+        <!-- Customer Profile Section -->
+        <div class="profile-header">
+            <div class="avatar">{fullName}</div>
+            <div class="profile-info">
+                <h2 class="customer-name">{fullName}</h2>
+                <span class="loyalty-badge">{loyaltyPoints}</span>
+            </div>
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-item">
+                <span class="detail-label">Date of Birth</span>
+                <span class="detail-value">{dateOfBirth}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Gender</span>
+                <span class="detail-value">{gender}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Email</span>
+                <span class="detail-value">{email}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Phone</span>
+                <span class="detail-value">{phone}</span>
+            </div>
+        </div>
+
+        <!-- Rental History Section -->
+        <div class="rental-section">
+            <h3 class="rental-heading">Rental History</h3>
+            <template if:true={hasRentals}>
+                <template for:each={rentalDetailsList} for:item="rental">
+                    <div key={rental.name} class="rental-card">
+                        <div class="rental-movie">{rental.movieName}</div>
+                        <div class="rental-meta">
+                            <span class="rental-date">{rental.rentalDate}</span>
+                            <span class="rental-amount">₹{rental.rentalAmount}</span>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:false={hasRentals}>
+                <p class="no-rentals">No rentals found.</p>
+            </template>
+        </div>
+
+    </div>
+</template>

@@ -1,0 +1,141 @@
+.container {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    padding: 16px;
+    background: #f4f6f9;
+    border-radius: 12px;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #0176d3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.customer-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #181818;
+    margin: 0 0 6px 0;
+}
+
+.loyalty-badge {
+    background: #cd7f32;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Details Grid */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.detail-label {
+    display: block;
+    font-size: 11px;
+    color: #706e6b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.detail-value {
+    display: block;
+    font-size: 14px;
+    color: #181818;
+    font-weight: 500;
+}
+
+/* Rental Section */
+.rental-section {
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.rental-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #181818;
+    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.rental-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.rental-card:last-child {
+    border-bottom: none;
+}
+
+.rental-movie {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0176d3;
+}
+
+.rental-meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.rental-date {
+    font-size: 12px;
+    color: #706e6b;
+}
+
+.rental-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2e844a;
+}
+
+.no-rentals {
+    font-size: 13px;
+    color: #706e6b;
+    text-align: center;
+    padding: 16px 0;
+}
