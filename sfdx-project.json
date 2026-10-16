@@ -8,5 +8,6 @@
   "name": "new-practice",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "67.0"
+  "sourceApiVersion": "67.0",
+  "sourceBehaviorOptions": ["decomposeExternalServiceRegistration"]
 }
