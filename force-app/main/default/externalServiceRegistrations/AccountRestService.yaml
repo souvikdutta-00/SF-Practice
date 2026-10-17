@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Account Service
+  version: 1.0.0
+  description: Fetches Salesforce accounts, optionally filtered by industry or name.
+servers:
+  - url: /services/apexrest
+paths:
+  /AccountService:
+    get:
+      operationId: getAccounts
+      summary: Get accounts
+      description: Returns a list of accounts with industry, type, phone and billing location. Filter by industry or by part of the account name. Returns the 10 newest accounts if no filter is given.
+      parameters:
+        - name: industry
+          in: query
+          required: false
+          description: Exact industry to filter by, for example Energy.
+          schema:
+            type: string
+        - name: name
+          in: query
+          required: false
+          description: Part of the account name to search for.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of accounts to return (1 to 200).
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: List of accounts.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountResponse"
+components:
+  schemas:
+    AccountInfo:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        industry: { type: string }
+        type: { type: string }
+        phone: { type: string }
+        billingCity: { type: string }
+        billingCountry: { type: string }
+    AccountResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        message: { type: string }
+        count: { type: integer }
+        accounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/AccountInfo"

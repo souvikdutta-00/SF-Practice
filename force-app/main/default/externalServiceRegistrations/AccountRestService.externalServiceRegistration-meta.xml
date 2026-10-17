@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>AccountRestService</label>
+    <registrationProviderType>ApexRest</registrationProviderType>
+    <registrationProviderAsset>AccountRestService</registrationProviderAsset>
+    <schemaType>OpenApi3</schemaType>
+    <status>Complete</status>
+    <schemaUploadFileExtension>yaml</schemaUploadFileExtension>
+    <schemaUploadFileName>AccountRestService</schemaUploadFileName>
+</ExternalServiceRegistration>

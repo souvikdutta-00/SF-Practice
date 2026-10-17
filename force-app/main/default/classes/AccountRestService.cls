@@ -1,4 +1,4 @@
-@RestResource(urlMapping='/v1/AccountService/*')
+@RestResource(urlMapping='/AccountService/*')
 global with sharing class AccountRestService {
   // The shape of what we send back
   global class AccountResponse {
@@ -8,21 +8,16 @@ global with sharing class AccountRestService {
     public List<Account> accounts;
   }
 
-  // CHANGED: Changed return type from 'void' to 'AccountResponse'
   @HttpGet
-  global static AccountResponse getAccounts() {
+  global static void getAccounts() {
     RestRequest req = RestContext.request;
     RestResponse res = RestContext.response;
-
-    // Salesforce sets Content-Type to JSON automatically when returning an object,
-    // but keeping this line is perfectly safe.
     res.addHeader('Content-Type', 'application/json');
     AccountResponse body = new AccountResponse();
 
     try {
-      // 1. Is there an Id at the end of the URL?
+      // 1. Is there an Id at the end of the URL? e.g. /AccountService/001xx...
       String lastPart = req.requestURI.substringAfterLast('/');
-      // FIXED: Fixed the check to match your /v1/AccountService mapping
       Boolean hasId =
         String.isNotBlank(lastPart) && lastPart != 'AccountService';
 
@@ -46,7 +41,8 @@ global with sharing class AccountRestService {
           res.statusCode = 404;
           body.success = false;
           body.message = 'No account found for Id ' + lastPart;
-          return body; // CHANGED: Direct object return
+          res.responseBody = Blob.valueOf(JSON.serialize(body));
+          return;
         }
         body.accounts = result;
       } else {
@@ -89,7 +85,7 @@ global with sharing class AccountRestService {
       body.count = body.accounts.size();
       body.message = 'OK';
     } catch (QueryException e) {
-      res.statusCode = 403;
+      res.statusCode = 403; // usually no permission on object/fields
       body.success = false;
       body.message = 'Access or query problem: ' + e.getMessage();
     } catch (Exception e) {
@@ -98,8 +94,6 @@ global with sharing class AccountRestService {
       body.message = e.getMessage();
     }
 
-    // CHANGED: Removed manual Blob serialization. Returning the object directly
-    // allows the OpenAPI parser to inspect your structure and generate the schema.
-    return body;
+    res.responseBody = Blob.valueOf(JSON.serialize(body));
   }
 }
