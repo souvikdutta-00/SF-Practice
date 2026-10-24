@@ -1,8 +1,8 @@
 /**
- * @description       : 
+ * @description       : To fetch the customer details and rental details based on the input first name and last name of the customer.
  * @author            : Souvik Dutta
  * @group             : 
- * @last modified on  : 09-05-2026
+ * @last modified on  : 24-10-2026
  * @last modified by  : Souvik Dutta
 **/
 public with sharing class ShowCustomerDetails {
@@ -21,12 +21,13 @@ public with sharing class ShowCustomerDetails {
 
         // Create output wrapper for customer details
         OutputWrapper output = new OutputWrapper();
-        output.customerDetails = new CustomerDetails(customer);
-        output.rentalDetailsList = new List<RentalDetails>();
+        output.fResponse = new FinalResponse();
+        output.fResponse.customerDetails = new CustomerDetails(customer);
+        output.fResponse.rentalDetailsList = new List<RentalDetails>();
 
         // Create output wrappers for rental details
         for (Rental__c rental : rentals) {
-            output.rentalDetailsList.add(new RentalDetails(rental));
+            output.fResponse.rentalDetailsList.add(new RentalDetails(rental));
         }
 
         result.add(output);
@@ -41,6 +42,11 @@ public with sharing class ShowCustomerDetails {
     }
 
     public class OutputWrapper{
+        @InvocableVariable(label = 'Final Response' description = 'Final Response')
+        public FinalResponse fResponse;
+    }
+
+    public class FinalResponse{
         @InvocableVariable(label = 'Customer Details' description = 'Customer details')
         public CustomerDetails customerDetails;
 
