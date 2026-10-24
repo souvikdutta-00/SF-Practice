@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>Customer_Detail_Lightning_Type</members>
-		<name>LightningTypeBundle</name>
+		<members>Sales_Employee_Agent</members>
+		<name>AiAgentDefinition</name>
 	</types>
-	<version>67.0</version>
+	<types>
+		<members>Sales_Employee_Agent#3</members>
+		<name>AiAgentDefinitionVersion</name>
+	</types>
+	<version>68.0</version>
 </Package>

@@ -1,0 +1,111 @@
+<!--
+  @description       : UI component to display the customer details and rental history based on the input first name and last name of the customer.
+  @author            : Souvik Dutta
+  @group             : 
+  @last modified on  : 24-10-2026
+  @last modified by  : Souvik Dutta
+-->
+<template>
+  <div class="card">
+    <template lwc:if={customerData}>
+      <!-- Header -->
+      <div class="header">
+        <div class="avatar">
+          <lightning-icon
+            icon-name="standard:customer"
+            size="medium"
+            alternative-text="Customer"
+          ></lightning-icon>
+        </div>
+        <div class="identity">
+          <h2 class="name">{customerData.firstName} {customerData.lastName}</h2>
+          <span class="badge">{customerData.loyaltyPoints}</span>
+        </div>
+      </div>
+
+      <!-- Profile details -->
+      <dl class="details">
+        <div class="detail">
+          <dt>Date of birth</dt>
+          <dd>
+            <lightning-formatted-date-time
+              value={customerData.dateOfBirth}
+              year="numeric"
+              month="short"
+              day="2-digit"
+              time-zone="UTC"
+            >
+            </lightning-formatted-date-time>
+          </dd>
+        </div>
+        <div class="detail">
+          <dt>Gender</dt>
+          <dd>{customerData.gender}</dd>
+        </div>
+        <div class="detail">
+          <dt>Email</dt>
+          <dd>
+            <lightning-formatted-email
+              value={customerData.email}
+            ></lightning-formatted-email>
+          </dd>
+        </div>
+        <div class="detail">
+          <dt>Phone</dt>
+          <dd>
+            <lightning-formatted-phone
+              value={customerData.phone}
+            ></lightning-formatted-phone>
+          </dd>
+        </div>
+      </dl>
+
+      <!-- Rentals -->
+      <h3 class="section-title">Rental history ({rentalDataList.length})</h3>
+      <template lwc:if={rentalDataList.length}>
+        <ul class="rental-list">
+          <template for:each={rentalDataList} for:item="rental">
+            <li key={rental.name} class="rental">
+              <div class="rental-icon">
+                <lightning-icon
+                  icon-name="utility:video"
+                  size="x-small"
+                  alternative-text="Movie"
+                ></lightning-icon>
+              </div>
+              <div class="rental-info">
+                <span class="movie">{rental.movieName}</span>
+                <span class="meta">
+                  {rental.name} ·
+                  <lightning-formatted-date-time
+                    value={rental.rentalDate}
+                    year="numeric"
+                    month="short"
+                    day="2-digit"
+                    time-zone="UTC"
+                  >
+                  </lightning-formatted-date-time>
+                </span>
+              </div>
+              <div class="amount">
+                <lightning-formatted-number
+                  value={rental.rentalAmount}
+                  format-style="currency"
+                  currency-code="INR"
+                >
+                </lightning-formatted-number>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </template>
+      <template lwc:else>
+        <p class="empty">No rentals yet for this customer.</p>
+      </template>
+    </template>
+
+    <template lwc:else>
+      <p class="empty">No customer details to show.</p>
+    </template>
+  </div>
+</template>
