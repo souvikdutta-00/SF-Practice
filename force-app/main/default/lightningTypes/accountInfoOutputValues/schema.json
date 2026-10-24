@@ -1,0 +1,39 @@
+{
+  "title": "Account Info Output Values",
+  "description": "Payload fields from the FetchAccountRelatedData action",
+  "type": "object",
+  "lightning:type": "lightning__objectType",
+  "unevaluatedProperties": false,
+  "lightning:tags": ["mcp"],
+  "properties": {
+    "accountId": {
+      "title": "Account Id",
+      "lightning:type": "lightning__textType"
+    },
+    "accountName": {
+      "title": "Account Name",
+      "lightning:type": "lightning__textType"
+    },
+    "accountType": { "title": "Type", "lightning:type": "lightning__textType" },
+    "industry": {
+      "title": "Industry",
+      "lightning:type": "lightning__textType"
+    },
+    "rating": { "title": "Rating", "lightning:type": "lightning__textType" },
+    "phone": { "title": "Phone", "lightning:type": "lightning__textType" },
+    "website": { "title": "Website", "lightning:type": "lightning__textType" },
+    "annualRevenue": {
+      "title": "Annual Revenue",
+      "lightning:type": "lightning__numberType"
+    },
+    "numberOfEmployees": {
+      "title": "Employees",
+      "lightning:type": "lightning__numberType"
+    },
+    "ownerName": { "title": "Owner", "lightning:type": "lightning__textType" },
+    "contactData": {
+      "title": "Contacts",
+      "lightning:type": "lightning__listType"
+    }
+  }
+}

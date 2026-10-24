@@ -1,0 +1,53 @@
+{
+  "title": "Account Card Widget",
+  "description": "Account profile with a list of contacts.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "accountName": {
+          "title": "Account Name",
+          "lightning:type": "lightning__textType"
+        },
+        "accountType": {
+          "title": "Type",
+          "lightning:type": "lightning__textType"
+        },
+        "industry": {
+          "title": "Industry",
+          "lightning:type": "lightning__textType"
+        },
+        "rating": {
+          "title": "Rating",
+          "lightning:type": "lightning__textType"
+        },
+        "ownerName": {
+          "title": "Owner",
+          "lightning:type": "lightning__textType"
+        },
+        "phone": { "title": "Phone", "lightning:type": "lightning__textType" },
+        "website": {
+          "title": "Website",
+          "lightning:type": "lightning__textType"
+        },
+        "annualRevenue": {
+          "title": "Annual Revenue",
+          "lightning:type": "lightning__numberType"
+        },
+        "numberOfEmployees": {
+          "title": "Employees",
+          "lightning:type": "lightning__numberType"
+        },
+        "contacts": {
+          "title": "Contacts",
+          "description": "Contacts on the account",
+          "lightning:type": "lightning__listType",
+          "items": {
+            "lightning:type": "@apexClassType/c__FetchAccountRelatedData$ContactItem"
+          }
+        }
+      }
+    }
+  }
+}

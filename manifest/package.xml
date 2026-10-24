@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>Sales_Employee_Agent</members>
-		<name>AiAgentDefinition</name>
-	</types>
-	<types>
-		<members>Sales_Employee_Agent#3</members>
-		<name>AiAgentDefinitionVersion</name>
+		<members>FetchAccountDetails</members>
+		<name>McpServerDefinition</name>
 	</types>
 	<version>68.0</version>
 </Package>

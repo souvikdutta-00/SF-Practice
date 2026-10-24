@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >This MCP helps to fetch account details with related contacts and opportunities based on the account name.</description>
+    <masterLabel>Fetch Account Details</masterLabel>
+       <resources>
+       <resourceName>accountCard</resourceName>
+       <resourceUri>ui://widget/lightningType/c__accountInfoResult</resourceUri>
+       <resourceTitle>Account Card</resourceTitle>
+       <description
+    >Account profile with contacts, opportunities and cases.</description>
+   </resources>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-FetchAccountRelatedData</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>FetchAccountRelatedData</operation>
+        </apiDefinition>
+        <descriptionOverride
+    >Fetch the related data of Account object</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>FetchAccountRelatedDataapex_FetchAccountRelatedData</toolName>
+        <toolTitle>FetchAccountRelatedData</toolTitle>
+        <uiResource>accountCard</uiResource>
+    </tools>
+</McpServerDefinition>

@@ -1,0 +1,21 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/accountCard",
+        "attributes": {
+          "accountName": "{!$attrs.outputValues.accountName}",
+          "accountType": "{!$attrs.outputValues.accountType}",
+          "industry": "{!$attrs.outputValues.industry}",
+          "rating": "{!$attrs.outputValues.rating}",
+          "ownerName": "{!$attrs.outputValues.ownerName}",
+          "phone": "{!$attrs.outputValues.phone}",
+          "website": "{!$attrs.outputValues.website}",
+          "annualRevenue": "{!$attrs.outputValues.annualRevenue}",
+          "numberOfEmployees": "{!$attrs.outputValues.numberOfEmployees}",
+          "contacts": "{!$attrs.outputValues.contactData}"
+        }
+      }
+    }
+  }
+}
