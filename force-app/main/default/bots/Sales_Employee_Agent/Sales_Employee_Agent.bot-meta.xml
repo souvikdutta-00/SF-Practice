@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>true</agentDSLEnabled>
+    <agentTemplate>EmployeeCopilot__AgentforceEmployeeAgent</agentTemplate>
+    <agentType>AgentforceEmployeeAgent</agentType>
+    <botMlDomain>
+        <label>Sales Employee Agent</label>
+        <name>Sales_Employee_Agent</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <description>Hello am your sales employee agent, Souvik helps you to boost your business.</description>
+    <label>Sales Employee Agent</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>InternalCopilot</type>
+</Bot>

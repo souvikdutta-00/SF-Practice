@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Hello am your sales employee agent, Souvik helps you to boost your business.</description>
+    <localTopicLinks>
+        <genAiPluginName>Customer_Rental_Lookup_16jbm000003NlhF</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jbm000003NlhF</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Customer_Rental_Lookup_16jbm000003NlhF</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles requests to look up a customer&apos;s profile and rental history at the Movie Rental Store. Use this when the user asks about a specific customer, such as their contact details, loyalty tier, date of birth, or the movies they have rented and how much they paid.</description>
+        <developerName>Customer_Rental_Lookup_16jbm000003NlhF</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+            <developerName>instruction0_179bm0000058ctG</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179bm0000058ctG</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Show_Customer_Details_179bm0000058ctG</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Show_Customer_Details_179bm0000058ctG</fullName>
+            <description>Finds a customer by first name and last name and returns their profile (first name, last name, date of birth, gender, loyalty tier, email, phone) along with their complete rental history (rental name, movie name, rental date, rental amount). Use this whenever the user asks about a particular customer or what that customer has rented.</description>
+            <developerName>Show_Customer_Details_179bm0000058ctG</developerName>
+            <invocationTarget>ShowCustomerDetails</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Show_Customer_Details</localDeveloperName>
+            <masterLabel>Show Customer Details</masterLabel>
+            <progressIndicatorMessage>Fetching Details...</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>Customer_Rental_Lookup</localDeveloperName>
+        <masterLabel>Customer &amp; Rental Lookup</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>agent_router_16jbm000003NlhF</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Welcome the user and determine the appropriate subagent based on user input</description>
+        <developerName>agent_router_16jbm000003NlhF</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}
+
+{{state.AgentScriptInternal_agent_instructions}}</description>
+            <developerName>instruction0_179bm0000058ctF</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179bm0000058ctF</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Sales Employee Agent</masterLabel>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Slack</surface>
+        <surfaceType>Slack</surfaceType>
+    </plannerSurfaces>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

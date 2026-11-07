@@ -1,0 +1,21 @@
+{
+  "required" : [ "customerFirstName", "customerLastName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "customerFirstName" : {
+      "title" : "Customer First Name",
+      "description" : "Customer First Name",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "customerLastName" : {
+      "title" : "Customer Last Name",
+      "description" : "Customer Last Name",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
